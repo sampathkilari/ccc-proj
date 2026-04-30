@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Game Strategy Optimizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">Coin Game Strategy Optimizer</h1>
+                <p class="subtitle">Challenge the AI in a battle of wits and strategy!</p>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-container">
+            <!-- Game Info Section -->
+            <section class="game-info">
+                <div class="info-card stats-card">
+                    <div class="stat-item">
+                        <span class="stat-label">Coins Remaining</span>
+                        <span class="stat-value" id="coinsCount">10</span>
+                    </div>
+                </div>
+
+                <div class="info-card turn-card">
+                    <span class="stat-label">Current Turn</span>
+                    <div class="turn-indicator" id="turnIndicator">YOUR TURN</div>
+                </div>
+
+                <div class="info-card status-card">
+                    <span class="stat-label">Status</span>
+                    <div class="status-text" id="statusText">Game Ready</div>
+                </div>
+            </section>
+
+            <!-- Coin Visual Representation -->
+            <section class="coin-display">
+                <div class="coins-container" id="coinsContainer">
+                    <!-- Coins will be generated here by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Move Selection Section -->
+            <section class="move-section" id="moveSection">
+                <h2 class="section-title">Choose Your Move</h2>
+                <div class="moves-grid">
+                    <button class="move-btn move-btn-1" id="moveBtn1" data-coins="1">
+                        <span class="move-icon">1</span>
+                        <span class="move-text">Remove 1</span>
+                    </button>
+                    <button class="move-btn move-btn-2" id="moveBtn2" data-coins="2">
+                        <span class="move-icon">2</span>
+                        <span class="move-text">Remove 2</span>
+                    </button>
+                    <button class="move-btn move-btn-3" id="moveBtn3" data-coins="3">
+                        <span class="move-icon">3</span>
+                        <span class="move-text">Remove 3</span>
+                    </button>
+                </div>
+                <p class="hint-text" id="hintText">Make your move wisely!</p>
+            </section>
+
+            <!-- AI Analysis Section -->
+            <section class="analysis-section" id="analysisSection" style="display: none;">
+                <div class="analysis-card">
+                    <h3>AI Analysis</h3>
+                    <p id="analysisText">Analyzing game state...</p>
+                    <div class="animation-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Game Over Modal -->
+            <section class="modal" id="gameOverModal" style="display: none;">
+                <div class="modal-content">
+                    <div class="modal-header" id="modalHeader">
+                        <h2>Game Over!</h2>
+                    </div>
+                    <div class="modal-body">
+                        <p class="result-text" id="resultText">Congratulations! You won!</p>
+                        <p class="result-description" id="resultDescription">You successfully removed the last coin!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" id="restartBtn">Play Again</button>
+                        <button class="btn btn-secondary" id="newGameBtn">New Game Setup</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Game Setup Modal -->
+            <section class="modal" id="setupModal">
+                <div class="modal-content setup-modal">
+                    <div class="modal-header">
+                        <h2>Game Setup</h2>
+                    </div>
+                    <div class="modal-body">
+                        <p class="setup-description">Select the number of coins to start with:</p>
+                        
+                        <div class="coin-count-slider">
+                            <input type="range" id="coinSlider" min="5" max="30" value="10" class="slider">
+                            <div class="slider-labels">
+                                <span>5</span>
+                                <span class="slider-value">10</span>
+                                <span>30</span>
+                            </div>
+                        </div>
+
+                        <div class="difficulty-section">
+                            <p class="difficulty-label">Choose Difficulty:</p>
+                            <div class="difficulty-buttons">
+                                <button class="difficulty-btn difficulty-easy active" data-difficulty="easy">
+                                    <span class="diff-name">Easy</span>
+                                </button>
+                                <button class="difficulty-btn difficulty-hard" data-difficulty="hard">
+                                    <span class="diff-name">Hard</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="rules-info">
+                            <h4>Rules:</h4>
+                            <ul>
+                                <li>Players take turns removing 1, 2, or 3 coins</li>
+                                <li>Player who removes the last coin wins</li>
+                                <li>AI uses Minimax algorithm and dynamic programming</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary start-btn" id="startBtn">Start Game</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="footer">
+            <p>Built with care using modern web technologies</p>
+            <p class="algorithm-info">Powered by Minimax algorithm and dynamic programming</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
